@@ -10,17 +10,47 @@ const musicas = [
     {
         titulo: "Bohemian Rhapsody",
         artista: "Queen",
-        capaUrl: "https://picsum.photos/200/200?random=1"
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273365b3fb800c19f7ff72602da"
     },
     {
-        titulo: "Imagine",
-        artista: "John Lennon",
-        capaUrl: "https://picsum.photos/200/200?random=2"
+        titulo: "Shape of You",
+        artista: "Ed Sheeran",
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96"
     },
     {
         titulo: "Garota de Ipanema",
         artista: "Tom Jobim",
-        capaUrl: "https://picsum.photos/200/200?random=3"
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273e2e352d89826aef6dbd5ff8f"
+    },
+    {
+        titulo: "Evidências",
+        artista: "Chitãozinho & Xororó",
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273e11b94d2bda6c6f3068b873c"
+    },
+    {
+        titulo: "Smooth Criminal",
+        artista: "Michael Jackson",
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273de437d960dda1ac0a3586d97"
+    },
+    {
+        titulo: "Anunciação",
+        artista: "Alceu Valença",
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273f9e8956b0df218e6785fe856"
+    },
+    {
+        titulo: "Cheia de Manias",
+        artista: "Raça Negra",
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273a8dee4eec15ad4b7aa3cd742"
+    },
+    {
+        titulo: "Malvadão 3",
+        artista: "Xamã",
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273f579764510b47d9e4e12db99"
+    },
+    {
+        titulo: "Love of My Life",
+        artista: "Queen",
+        capaUrl: "https://i.scdn.co/image/ab67616d0000b273e319baafd16e84f0408af2a0"
     }
 ];
 
