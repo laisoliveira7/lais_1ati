@@ -49,51 +49,70 @@ const musicas = [
 // É uma forma mais elegante e funcional de fazer um loop, onde cada item é transformado em HTML
 // e retornado como um novo array que depois juntamos com join('').
 */
-/*
-// Copilot, crie uma função que lê o array 'musicas' e insere o HTML de cada música na div com id 'lista-de-musicas'.
-// R: Esta função usa o método forEach para iterar sobre o array de músicas e
-// createElement para criar elementos HTML de forma dinâmica, que é uma abordagem
-// mais estruturada que usar innerHTML.
-*/
+let musicaAtual = null;
+
 function carregarMusicas() {
     const container = document.getElementById('lista-de-musicas');
-    // Limpa o conteúdo anterior
     container.innerHTML = '';
     
-    // Para cada música no array, cria os elementos necessários
     musicas.forEach(musica => {
-        // Cria o card
         const card = document.createElement('div');
         card.className = 'musica-card';
         
-        // Cria a imagem
         const img = document.createElement('img');
         img.src = musica.capaUrl;
         img.alt = `Capa do álbum ${musica.titulo}`;
         
-        // Cria o título
         const titulo = document.createElement('h3');
         titulo.textContent = musica.titulo;
         
-        // Cria o nome do artista
         const artista = document.createElement('p');
         artista.textContent = musica.artista;
         
-        // Cria o botão de play
         const playBtn = document.createElement('button');
         playBtn.className = 'play-btn';
-        playBtn.textContent = 'Play';
-        playBtn.onclick = () => tocarMusica(musica.titulo);
+        playBtn.innerHTML = '<i class="fas fa-play"></i> Play';
         
-        // Adiciona todos os elementos ao card
+        // Atualiza o player quando clicar no card ou no botão
+        const atualizarPlayer = () => {
+            musicaAtual = musica;
+            atualizarPlayerUI();
+        };
+        
+        card.onclick = atualizarPlayer;
+        playBtn.onclick = (e) => {
+            e.stopPropagation(); // Evita que o clique do botão dispare o evento do card
+            atualizarPlayer();
+        };
+        
         card.appendChild(img);
         card.appendChild(titulo);
         card.appendChild(artista);
         card.appendChild(playBtn);
-        
-        // Adiciona o card ao container
         container.appendChild(card);
     });
+}
+
+function atualizarPlayerUI() {
+    const songInfo = document.querySelector('.song-info');
+    const currentThumb = document.querySelector('.current-thumb');
+    const playPauseBtn = document.querySelector('.play-pause');
+    
+    if (musicaAtual) {
+        songInfo.innerHTML = `
+            <h3>${musicaAtual.titulo}</h3>
+            <p>${musicaAtual.artista}</p>
+        `;
+        currentThumb.src = musicaAtual.capaUrl;
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+        songInfo.innerHTML = `
+            <h3>Selecione uma música</h3>
+            <p>Clique em uma música para começar</p>
+        `;
+        currentThumb.src = "https://picsum.photos/50/50?random=1";
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    }
 }
 
 /*
