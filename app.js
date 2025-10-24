@@ -11,27 +11,27 @@ const musicas = [
     {
         titulo: "Bohemian Rhapsody",
         artista: "Queen",
-        capaUrl: "https://example.com/queen-bohemian.jpg"
+        capaUrl: "https://picsum.photos/200/200?random=1"
     },
     {
         titulo: "Imagine",
         artista: "John Lennon",
-        capaUrl: "https://example.com/lennon-imagine.jpg"
+        capaUrl: "https://picsum.photos/200/200?random=2"
     },
     {
         titulo: "Garota de Ipanema",
         artista: "Tom Jobim",
-        capaUrl: "https://example.com/jobim-garota.jpg"
+        capaUrl: "https://picsum.photos/200/200?random=3"
     },
     {
         titulo: "Billie Jean",
         artista: "Michael Jackson",
-        capaUrl: "https://example.com/jackson-billiejean.jpg"
+        capaUrl: "https://picsum.photos/200/200?random=4"
     },
     {
         titulo: "Aquarela",
         artista: "Toquinho",
-        capaUrl: "https://example.com/toquinho-aquarela.jpg"
+        capaUrl: "https://picsum.photos/200/200?random=5"
     }
 ];
 
@@ -49,19 +49,51 @@ const musicas = [
 // É uma forma mais elegante e funcional de fazer um loop, onde cada item é transformado em HTML
 // e retornado como um novo array que depois juntamos com join('').
 */
+/*
+// Copilot, crie uma função que lê o array 'musicas' e insere o HTML de cada música na div com id 'lista-de-musicas'.
+// R: Esta função usa o método forEach para iterar sobre o array de músicas e
+// createElement para criar elementos HTML de forma dinâmica, que é uma abordagem
+// mais estruturada que usar innerHTML.
+*/
 function carregarMusicas() {
-    const container = document.querySelector('.musicas-container');
+    const container = document.getElementById('lista-de-musicas');
+    // Limpa o conteúdo anterior
+    container.innerHTML = '';
     
-    const musicasHTML = musicas.map(musica => `
-        <div class="musica-card">
-            <img src="${musica.capaUrl}" alt="Capa do álbum ${musica.titulo}">
-            <h3>${musica.titulo}</h3>
-            <p>${musica.artista}</p>
-            <button class="play-btn" onclick="tocarMusica('${musica.titulo}')">Play</button>
-        </div>
-    `).join('');
-
-    container.innerHTML = musicasHTML;
+    // Para cada música no array, cria os elementos necessários
+    musicas.forEach(musica => {
+        // Cria o card
+        const card = document.createElement('div');
+        card.className = 'musica-card';
+        
+        // Cria a imagem
+        const img = document.createElement('img');
+        img.src = musica.capaUrl;
+        img.alt = `Capa do álbum ${musica.titulo}`;
+        
+        // Cria o título
+        const titulo = document.createElement('h3');
+        titulo.textContent = musica.titulo;
+        
+        // Cria o nome do artista
+        const artista = document.createElement('p');
+        artista.textContent = musica.artista;
+        
+        // Cria o botão de play
+        const playBtn = document.createElement('button');
+        playBtn.className = 'play-btn';
+        playBtn.textContent = 'Play';
+        playBtn.onclick = () => tocarMusica(musica.titulo);
+        
+        // Adiciona todos os elementos ao card
+        card.appendChild(img);
+        card.appendChild(titulo);
+        card.appendChild(artista);
+        card.appendChild(playBtn);
+        
+        // Adiciona o card ao container
+        container.appendChild(card);
+    });
 }
 
 /*
