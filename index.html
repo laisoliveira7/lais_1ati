@@ -1,12 +1,37 @@
+<!-- 
+// Copilot, crie a estrutura base de um site HTML5.
+// Copilot, por que você usou uma tag '<section>' aqui?
+// R: A tag <section> é usada para agrupar conteúdo relacionado tematicamente.
+// Ela ajuda na semântica do HTML5, tornando o código mais organizado e
+// melhorando a acessibilidade do site.
+-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página</title>
+    <title>Meu Player de Música</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Bem-vindo(a)!</h1>
-    <p>Esta é minha primeira página HTML.</p>
+    <header>
+        <h1>Meu Player de Música</h1>
+    </header>
+
+    <main>
+        <section class="musicas-container">
+            <div class="musica-card">
+                <img src="placeholder-album.jpg" alt="Capa do álbum">
+                <h3>Nome da Música</h3>
+                <p>Artista</p>
+                <button class="play-btn">Play</button>
+            </div>
+            <!-- Mais cards de música podem ser adicionados aqui -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Meu Player de Música</p>
+    </footer>
 </body>
 </html>
