@@ -42,3 +42,37 @@ const musicas = [
 // 2. Mantém as informações relacionadas agrupadas em um único objeto
 // 3. Torna o código mais escalável - podemos adicionar novas propriedades facilmente
 */
+
+/*
+// Copilot, explique o que o método map faz nesta função:
+// R: O método map percorre cada item do array 'musicas' e cria um novo elemento HTML para cada música.
+// É uma forma mais elegante e funcional de fazer um loop, onde cada item é transformado em HTML
+// e retornado como um novo array que depois juntamos com join('').
+*/
+function carregarMusicas() {
+    const container = document.querySelector('.musicas-container');
+    
+    const musicasHTML = musicas.map(musica => `
+        <div class="musica-card">
+            <img src="${musica.capaUrl}" alt="Capa do álbum ${musica.titulo}">
+            <h3>${musica.titulo}</h3>
+            <p>${musica.artista}</p>
+            <button class="play-btn" onclick="tocarMusica('${musica.titulo}')">Play</button>
+        </div>
+    `).join('');
+
+    container.innerHTML = musicasHTML;
+}
+
+/*
+// Copilot, por que adicionamos um event listener para 'DOMContentLoaded'?
+// R: O event listener 'DOMContentLoaded' garante que nosso código só será executado
+// após o DOM (estrutura HTML) estar completamente carregado. Isso evita erros de
+// tentar manipular elementos que ainda não existem na página.
+*/
+document.addEventListener('DOMContentLoaded', carregarMusicas);
+
+function tocarMusica(titulo) {
+    // Por enquanto só mostra um alerta
+    alert(`Tocando: ${titulo}`);
+}
