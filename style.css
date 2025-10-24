@@ -12,6 +12,20 @@
 // visual e melhora a experiência do usuário.
 */
 
+/*
+// Copilot, o que a regra 'display: flex' faz?
+// R: O display: flex cria um container flexível que permite organizar os elementos
+// filhos de forma mais eficiente. É como uma caixa elástica que pode ajustar
+// e alinhar seu conteúdo automaticamente, facilitando a criação de layouts
+// responsivos.
+
+// Copilot, por que usou 'flex-wrap' e 'justify-content'?
+// R: flex-wrap: wrap permite que os cards quebrem para a próxima linha quando
+// não houver espaço suficiente, tornando o layout responsivo.
+// justify-content: center centraliza os cards horizontalmente no container,
+// criando um visual mais agradável e equilibrado.
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -19,10 +33,86 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #170f23, #0f0817);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #121212;  /* Cor de fundo escura do Spotify */
     color: white;
     min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #1DB954;  /* Verde do Spotify */
+}
+
+#lista-de-musicas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.musica-card {
+    background-color: #282828;  /* Cor de fundo dos cards do Spotify */
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.musica-card:hover {
+    background-color: #383838;
+    transform: translateY(-5px);
+}
+
+.musica-card img {
+    width: 100%;
+    height: 168px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.musica-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.musica-card p {
+    font-size: 14px;
+    color: #B3B3B3;
+    margin-bottom: 16px;
+}
+
+.musica-card button {
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.musica-card button:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #B3B3B3;
 }
 
 .container {
